@@ -25,6 +25,6 @@
                 Canvas.Top="50"
                 />
         </Canvas>
-        
+        <!--make new note-->
     </Grid>
 </Window>
