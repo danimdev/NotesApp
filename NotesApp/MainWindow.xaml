@@ -17,13 +17,13 @@
         </StackPanel>
 
         <Canvas Grid.Row="1">
-            <Rectangle
-                Width="50"
-                Height="50"
-                Fill="Green"
-                Canvas.Left="50"
-                Canvas.Top="50"
-                />
+            <ListBox >
+                <ListBox.ItemTemplate >
+                    <DataTemplate >
+                        
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Canvas>
         <!--make new note-->
     </Grid>

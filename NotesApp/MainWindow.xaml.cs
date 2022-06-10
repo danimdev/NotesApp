@@ -24,5 +24,13 @@ namespace NotesApp
         {
             InitializeComponent();
         }
+
+        private void Rectangle_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragDrop.DoDragDrop(greenRec,new DataObject(), DragDropEffects.Move);
+            }
+        }
     }
 }
