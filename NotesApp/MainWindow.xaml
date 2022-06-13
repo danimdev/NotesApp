@@ -20,7 +20,15 @@
             <ListBox >
                 <ListBox.ItemTemplate >
                     <DataTemplate >
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                        </Grid>
+
                         
+
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
