@@ -23,10 +23,17 @@ namespace NotesApp
         public MainWindow()
         {
             InitializeComponent();
+
+            List<ToDoItem> list = new List<ToDoItem>();
+            list.Add(new ToDoItem() { Title = "Make a new Program",Description = "Make it versatile" }) ;
+            list.Add(new ToDoItem() { Title = "Make a Game", Description = "Let it be a shooter" });
+            icTodolist.ItemsSource = list;
         }
 
-        private void Rectangle_MouseMove(object sender, MouseEventArgs e)
+        public class ToDoItem
         {
+            public string Title { get; set; }
+            public string Description { get; set; }
         }
     }
 }

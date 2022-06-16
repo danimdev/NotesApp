@@ -24,17 +24,14 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        
-                        
-                        <TextBlock Width="200" Height="50" Text="{Binding Title}"/>
-                        <TextBlock Width="200" Height="100" Text="{Binding Description}"/>
-                        
+                        <TextBlock Grid.Row="0" Width="400" Height="50" FontSize="20" Text="{Binding Title}" Background="Violet" Foreground="White"/>
+                        <TextBlock Grid.Row="1" Width="400" Height="75" FontSize="10" Text="{Binding Description}" Background="DimGray" Foreground="White"/>
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
         
-        <StackPanel Grid.Row="1">
+        <!--<StackPanel Grid.Row="1">
             <ListBox>
                 <ListBoxItem Height="50" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <TextBlock Text="exampleText" FontSize="30"/>
@@ -43,7 +40,7 @@
                     <TextBlock Text="description" FontSize="15"/>
                 </ListBoxItem>
             </ListBox>
-        </StackPanel>
+        </StackPanel>-->
         
         <!--make new note-->
     </Grid>
