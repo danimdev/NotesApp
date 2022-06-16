@@ -16,6 +16,24 @@
             <Button Content="Create Note"/>
         </StackPanel>
 
+        <ItemsControl x:Name="icTodolist" Grid.Row="1">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        
+                        
+                        <TextBlock Width="200" Height="50" Text="{Binding Title}"/>
+                        <TextBlock Width="200" Height="100" Text="{Binding Description}"/>
+                        
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
         <StackPanel Grid.Row="1">
             <ListBox>
                 <ListBoxItem Height="50" HorizontalAlignment="Left" VerticalAlignment="Top">
@@ -27,23 +45,6 @@
             </ListBox>
         </StackPanel>
         
-        <Canvas Grid.Row="1">
-            <ListBox >
-                <ListBox.ItemTemplate >
-                    <DataTemplate >
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="10"/>
-                                <RowDefinition Height="30"/>
-                            </Grid.RowDefinitions>
-                        </Grid>
-
-                        
-
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </Canvas>
         <!--make new note-->
     </Grid>
 </Window>
