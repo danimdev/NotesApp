@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,14 +22,19 @@ namespace NotesApp
     public partial class MainWindow : Window
     {
         List<ToDoItem> list = new List<ToDoItem>();
-
+        private ObservableCollection<ToDoItem> taskList;
         public MainWindow()
         {
             InitializeComponent();
-            list.Add(new ToDoItem() { Title = "Make a new Program",Description = "Make it versatile" }) ;
-            list.Add(new ToDoItem() { Title = "Make a Game", Description = "Let it be a shooter and make it like so you can shoot other enemys" });
-            list.Add(new ToDoItem() { Title = "This is an extra long title to see how it would look like", Description = "test" });
-            icTodolist.ItemsSource = list;
+
+            taskList = new ObservableCollection<ToDoItem>
+            {
+                new ToDoItem() { Title = "Make a new Program",Description = "Make it versatile" },
+                new ToDoItem() { Title = "Make a Game", Description = "Let it be a shooter and make it like so you can shoot other enemys" },
+                new ToDoItem() { Title = "This is an extra long title to see how it would look like", Description = "test" }
+            };
+
+            icTodolist.ItemsSource = taskList;
         }
 
         public class ToDoItem
@@ -40,7 +46,9 @@ namespace NotesApp
         private void DeleteActualElement(object sender, RoutedEventArgs e)
         {
             //remove item from list
-            list.RemoveAt(icTodolist.);
+            var button = sender as Button;
+            var task = button.DataContext as ToDoItem;
+            ((ObservableCollection<ToDoItem>)icTodolist.ItemsSource).Remove(task);
         }
     }
 }

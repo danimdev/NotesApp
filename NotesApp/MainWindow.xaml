@@ -25,11 +25,12 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <TextBlock TextWrapping="Wrap" Grid.Row="0" Width="390" Height="50" FontSize="20" Text="{Binding Title}" Background="Violet" Foreground="White">
-                        </TextBlock>
-                        <Button   Grid.Row="0" Content="X" Width="20" Height="20" Margin="350,0,0,0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock TextWrapping="Wrap" Grid.Row="0" Width="355" FontSize="20" Text="{Binding Title}" Background="Violet" Foreground="White"/>
+                            <Button Click="DeleteActualElement"  Grid.Row="0" Content="X" Padding="10"/>
+                        </StackPanel>
 
-                        <TextBlock TextWrapping="Wrap" Grid.Row="1" Width="400" Height="60" FontSize="15" Text="{Binding Description}" Background="DimGray" Foreground="White"/>
+                        <TextBlock TextWrapping="Wrap" Grid.Row="1" Padding="20" FontSize="15" Text="{Binding Description}" Background="DimGray" Foreground="White"/>
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
