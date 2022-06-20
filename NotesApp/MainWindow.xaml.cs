@@ -50,5 +50,11 @@ namespace NotesApp
             var task = button.DataContext as ToDoItem;
             ((ObservableCollection<ToDoItem>)icTodolist.ItemsSource).Remove(task);
         }
+
+        private void MakeNewTask(object sender, RoutedEventArgs e)
+        {
+            AddTaskWindow atw = new AddTaskWindow();
+            atw.Show();
+        }
     }
 }
