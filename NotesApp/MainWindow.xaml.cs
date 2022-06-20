@@ -22,7 +22,10 @@ namespace NotesApp
     public partial class MainWindow : Window
     {
         List<ToDoItem> list = new List<ToDoItem>();
+
         private ObservableCollection<ToDoItem> taskList;
+
+        AddTaskWindow atw;
         public MainWindow()
         {
             InitializeComponent();
@@ -53,7 +56,12 @@ namespace NotesApp
 
         private void MakeNewTask(object sender, RoutedEventArgs e)
         {
-            AddTaskWindow atw = new AddTaskWindow();
+            if (atw != null)
+            {
+                if (atw.IsActive) return;
+            }
+
+            atw = new AddTaskWindow();
             atw.Show();
         }
     }
