@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,14 +15,20 @@ using System.Windows.Shapes;
 
 namespace NotesApp
 {
-    /// <summary>
-    /// Interaktionslogik für AddTaskWindow.xaml
-    /// </summary>
     public partial class AddTaskWindow : Window
     {
+        
+
         public AddTaskWindow()
         {
             InitializeComponent();
+        }
+
+        private void CreateNewTaskButton(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)System.Windows.Application.Current.MainWindow).AddNewTask(TitleNameTextBox.Text,DescriptionTextBox.Text);
+            ((MainWindow)System.Windows.Application.Current.MainWindow).atw.Hide();
+
         }
     }
 }

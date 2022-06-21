@@ -16,26 +16,30 @@ using System.Windows.Shapes;
 
 namespace NotesApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         List<ToDoItem> list = new List<ToDoItem>();
 
-        private ObservableCollection<ToDoItem> taskList;
+        public ObservableCollection<ToDoItem> taskList;
 
-        AddTaskWindow atw;
+        public AddTaskWindow atw;
         public MainWindow()
         {
             InitializeComponent();
-
+            atw = new AddTaskWindow();
             taskList = new ObservableCollection<ToDoItem>
             {
                 new ToDoItem() { Title = "Make a new Program",Description = "Make it versatile" },
                 new ToDoItem() { Title = "Make a Game", Description = "Let it be a shooter and make it like so you can shoot other enemys" },
                 new ToDoItem() { Title = "This is an extra long title to see how it would look like", Description = "test" }
             };
+
+            icTodolist.ItemsSource = taskList;
+        }
+
+        public void AddNewTask(string title, string description)
+        {
+            taskList.Add(new ToDoItem() { Title = title, Description = description });
 
             icTodolist.ItemsSource = taskList;
         }
@@ -56,13 +60,21 @@ namespace NotesApp
 
         private void MakeNewTask(object sender, RoutedEventArgs e)
         {
-            if (atw != null)
+            if (atw.IsActive)
             {
-                if (atw.IsActive) return;
+                return;
             }
+            else
+            {
+                atw.Show();
+            }
+        }
 
-            atw = new AddTaskWindow();
-            atw.Show();
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
         }
     }
 }
