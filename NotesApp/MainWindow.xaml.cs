@@ -23,18 +23,32 @@ namespace NotesApp
         public ObservableCollection<ToDoItem> taskList;
 
         public AddTaskWindow atw;
+
         public MainWindow()
         {
             InitializeComponent();
             atw = new AddTaskWindow();
             taskList = new ObservableCollection<ToDoItem>
             {
-                new ToDoItem() { Title = "Make a new Program",Description = "Make it versatile" },
-                new ToDoItem() { Title = "Make a Game", Description = "Let it be a shooter and make it like so you can shoot other enemys" },
-                new ToDoItem() { Title = "This is an extra long title to see how it would look like", Description = "test" }
+                new ToDoItem() { Title = "Title",Description = "Description" },
             };
 
             icTodolist.ItemsSource = taskList;
+
+            Window_Loaded();
+        }
+
+        private void Window_Loaded()
+        {
+            this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
+        }
+
+        void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.T)
+            {
+                MakeNewTask(sender,e);
+            }
         }
 
         public void AddNewTask(string title, string description)

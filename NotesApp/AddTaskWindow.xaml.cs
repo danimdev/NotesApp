@@ -17,18 +17,38 @@ namespace NotesApp
 {
     public partial class AddTaskWindow : Window
     {
-        
+        int titleMaxCharacterLenth = 30;
 
         public AddTaskWindow()
         {
             InitializeComponent();
+            TitleNameTextBox.MaxLength = titleMaxCharacterLenth;
         }
 
         private void CreateNewTaskButton(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)System.Windows.Application.Current.MainWindow).AddNewTask(TitleNameTextBox.Text,DescriptionTextBox.Text);
-            ((MainWindow)System.Windows.Application.Current.MainWindow).atw.Hide();
+            if (TitleNameTextBox.Text != "" && DescriptionTextBox.Text != "")
+            {
+                ((MainWindow)System.Windows.Application.Current.MainWindow).AddNewTask(TitleNameTextBox.Text, DescriptionTextBox.Text);
+                ((MainWindow)System.Windows.Application.Current.MainWindow).atw.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Some of the Fields are empty!");
+            }
+        }
 
+        private void CancelButton(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)System.Windows.Application.Current.MainWindow).atw.Hide();
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
         }
     }
 }

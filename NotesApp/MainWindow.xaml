@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NotesApp"
         mc:Ignorable="d"
-        Title="NotesApp" Height="600" Width="400"
+        Title="NotesApp" Height="800" Width="400"
         ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
@@ -13,9 +13,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Button Click="MakeNewTask" Content="Create Note"/>
-        </StackPanel>
+        <Button Grid.Row="0" Click="MakeNewTask" Content="Create Note" Background="Turquoise"/>
 
         <ItemsControl x:Name="icTodolist" Grid.Row="1">
             <ItemsControl.ItemTemplate>
@@ -25,9 +23,10 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
+
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock TextWrapping="Wrap" Grid.Row="0" Width="355" FontSize="20" Text="{Binding Title}" Background="Violet" Foreground="White"/>
-                            <Button Click="DeleteActualElement"  Grid.Row="0" Content="X" Padding="10"/>
+                            <TextBlock Grid.Row="0" Width="355" FontSize="20" Text="{Binding Title}" Background="Violet" Foreground="White"/>
+                            <Button Click="DeleteActualElement"  Grid.Row="0" Content="X" Padding="10" Background="Violet" BorderBrush="Violet"/>
                         </StackPanel>
 
                         <TextBlock TextWrapping="Wrap" Grid.Row="1" Padding="20" FontSize="15" Text="{Binding Description}" Background="DimGray" Foreground="White"/>
