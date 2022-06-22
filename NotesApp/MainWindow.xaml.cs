@@ -37,7 +37,6 @@ namespace NotesApp
 
             Window_Loaded();
         }
-
         private void Window_Loaded()
         {
             this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
@@ -80,7 +79,10 @@ namespace NotesApp
             }
             else
             {
+                atw.TitleNameTextBox.Text = "";
+                atw.DescriptionTextBox.Text = "";
                 atw.Show();
+                
             }
         }
 
