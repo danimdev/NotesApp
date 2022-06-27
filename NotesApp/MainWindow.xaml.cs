@@ -37,6 +37,8 @@ namespace NotesApp
 
             Window_Loaded();
         }
+
+        //check for the T key when the window loaded
         private void Window_Loaded()
         {
             this.KeyDown += new KeyEventHandler(MainWindow_KeyDown);
