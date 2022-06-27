@@ -52,6 +52,7 @@ namespace NotesApp
             }
         }
 
+        //adding a new task on pressing the button
         public void AddNewTask(string title, string description)
         {
             taskList.Add(new ToDoItem() { Title = title, Description = description });
@@ -59,12 +60,14 @@ namespace NotesApp
             icTodolist.ItemsSource = taskList;
         }
 
+        //the class for an todoitem
         public class ToDoItem
         {
             public string Title { get; set; }
             public string Description { get; set; }
         }
 
+        //when the x Button is Pressed it should be deleted
         private void DeleteActualElement(object sender, RoutedEventArgs e)
         {
             //remove item from list
@@ -73,6 +76,7 @@ namespace NotesApp
             ((ObservableCollection<ToDoItem>)icTodolist.ItemsSource).Remove(task);
         }
 
+        //open a window to create a new task
         private void MakeNewTask(object sender, RoutedEventArgs e)
         {
             if (atw.IsActive)
@@ -88,6 +92,7 @@ namespace NotesApp
             }
         }
 
+        //when main window is closed close all side windows with it
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
