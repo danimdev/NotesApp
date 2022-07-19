@@ -13,7 +13,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Row="0" Click="MakeNewTask" Content="Create Note" Background="Turquoise"/>
+        <Button Grid.Row="0" Click="MakeNewTask"  Content="Create Note" Background="Turquoise"/>
 
         <ItemsControl x:Name="icTodolist" Grid.Row="1">
             <ItemsControl.ItemTemplate>
